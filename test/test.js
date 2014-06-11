@@ -10,7 +10,11 @@ var fixtures    = require('./fixtures');
 
 describe('Word Suggest // Dependencies', function () {
     it('should load lo-RM dictionary', function () {
-        assert.deepEqual(dictionary('lo-RM'), fixtures.dictionary);
+        assert.deepEqual(dictionary.get('lo-RM'), fixtures.dictionary);
+    });
+
+    it('should process a raw dictionary', function () {
+        assert.deepEqual(dictionary.process('test/fixtures/dictionary.dic'), fixtures.dictionaryRaw);
     });
 });
 

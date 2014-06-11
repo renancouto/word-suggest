@@ -2,5 +2,6 @@
 'use strict';
 
 module.exports = {
-    dictionary : require('./dictionary')
+    dictionary    : require('./dictionary'),
+    dictionaryRaw : require('./dictionary-raw')
 };
