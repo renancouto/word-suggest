@@ -16,6 +16,10 @@ describe('Word Suggest // Dependencies', function () {
     it('should process a raw dictionary', function () {
         assert.deepEqual(dictionary.process('test/fixtures/dictionary.dic'), fixtures.dictionaryRaw);
     });
+
+    it('should be able to use a custom dictionary (an array)', function () {
+        assert.equal(2, new WordSuggest('____m', [ 'lorem', 'ipsum', 'sit' ]).results.length);
+    });
 });
 
 describe('Word Suggest // Core', function () {
@@ -28,11 +32,11 @@ describe('Word Suggest // Core', function () {
         assert.equal(5, new WordSuggest('_____', 'lo-RM').results.length);
     });
 
-    it('should return "lorem" as alternative', function () {
+    it('should return an array with "lorem" as alternative', function () {
         assert.deepEqual([ 'lorem' ], new WordSuggest('lo_em', 'lo-RM').results);
     });
 
-    it('should return "dolor" and "lorem" as alternatives', function () {
+    it('should return an array with "dolor" and "lorem" as alternatives', function () {
         assert.deepEqual([ 'dolor', 'lorem' ], new WordSuggest('_o___', 'lo-RM').results);
     });
 });
